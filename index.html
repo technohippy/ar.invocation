@@ -192,10 +192,10 @@ function init() {
   scene.add(shadowMesh);
 
   THREE.ARUtils.loadModel({
-    objPath: OBJ_PATH,
-    //mtlPath: MTL_PATH,
-    OBJLoader: undefined, // uses window.THREE.OBJLoader by default
-    //MTLLoader: undefined, // uses window.THREE.MTLLoader by default
+    //objPath: OBJ_PATH,
+    mtlPath: MTL_PATH,
+    //OBJLoader: undefined, // uses window.THREE.OBJLoader by default
+    MTLLoader: undefined, // uses window.THREE.MTLLoader by default
   }).then(function(group) {
     model = group;
     // As OBJ models may contain a group with several meshes,
