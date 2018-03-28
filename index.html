@@ -316,6 +316,7 @@ function onClick (e) {
     //model.scale.set(0.001, 0.001, 0.001);
 
     var count = model.chidlren[0].geometry.faces.length;
+    alert(count);
     model.chidlren[0].geometry.faces.splice(Math.floor(count / 2), Math.floor(count / 2));
     model.chidlren[0].geometry.elementsNeedUpdate = true;
     /*
