@@ -116,6 +116,7 @@ THREE.ARUtils.getARDisplay().then(function (display) {
 function init() {
   // Turn on the debugging panel
   var arDebug = new THREE.ARDebug(vrDisplay);
+arDebug.addRow('console', new THREE.ARDebugRow('console'));
   document.body.appendChild(arDebug.getElement());
 
   // Setup the three.js rendering environment
