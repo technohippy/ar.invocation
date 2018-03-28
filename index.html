@@ -315,9 +315,9 @@ function onClick (e) {
     //model.rotation.set(0, angle + Math.PI, 0);
     //model.scale.set(0.001, 0.001, 0.001);
 
-    var count = model.geometry.faces.length;
-    model.geometry.faces.splice(Math.floor(count / 2), Math.floor(count / 2));
-    model.geometry.elementsNeedUpdate = true;
+    var count = model.chidlren[0].geometry.faces.length;
+    model.chidlren[0].geometry.faces.splice(Math.floor(count / 2), Math.floor(count / 2));
+    model.chidlren[0].geometry.elementsNeedUpdate = true;
     /*
     var verts = model.geometry.getAttribute('position');
     model.geometry.addAttribute('position', new THREE.Float32BufferAttribyte(verts.array.slice(Math.floor(verts.array.length / 10) * 3), 3));
