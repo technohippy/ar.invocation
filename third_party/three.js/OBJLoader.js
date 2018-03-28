@@ -776,8 +776,7 @@ THREE.OBJLoader = ( function () {
 
 				mesh.name = object.name;
 
-				//container.add( mesh );
-				container.add( object );
+				container.add( mesh );
 
 			}
 
