@@ -322,9 +322,13 @@ function onClick (e) {
     model.children[0].geometry.elementsNeedUpdate = true;
     */
     alert(model.children.length);
-    var verts = model.children[0].geometry.getAttribute('position');
-    model.children[0].geometry.addAttribute('position', new THREE.Float32BufferAttribyte(verts.array.slice(Math.floor(verts.array.length / 10) * 3), 3));
+    var attrib = model.children[0].geometry.getAttribute('position');
+    /*
+    model.children[0].geometry.addAttribute('position', new THREE.Float32BufferAttribyte(attrib.array.slice(Math.floor(attrib.array.length / 10) * 3), 3));
     model.children[0].geometry.needsUpdate = true;
+    */
+    attrib.array = attrib.array.slice(Math.floor(attrib.array.length / 10) * 3);
+    attrib.needsUpdate = true;
   }
 }
 </script>
