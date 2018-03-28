@@ -116,7 +116,6 @@ THREE.ARUtils.getARDisplay().then(function (display) {
 function init() {
   // Turn on the debugging panel
   var arDebug = new THREE.ARDebug(vrDisplay);
-arDebug._view.addRow('console', new THREE.ARDebugRow('console'));
   document.body.appendChild(arDebug.getElement());
 
   // Setup the three.js rendering environment
@@ -313,6 +312,7 @@ function onClick (e) {
       camera.position.z - model.position.z
     );
     //model.rotation.set(0, angle, 0);
+    arDebug.getElement.appendChild('' + model.material.clippingPlanes);
     model.material.clippingPlanes = [new THREE.Plane(new THREE.Vector3(0, -1, 0), 0.05)];
   }
 }
