@@ -314,9 +314,9 @@ function onClick (e) {
     model.rotation.set(0, angle, 0);
     model.scale.set(0.001, 0.001, 0.001);
 
-    var count = model.geometry.faces.length;
-    model.geometry.faces.splice(Math.floor(count / 2), Math.floor(count / 2));
-    model.geometry.elementsNeedUpdate = true;
+    var count = model.children[0].geometry.faces.length;
+    model.children[0].geometry.faces.splice(Math.floor(count / 2), Math.floor(count / 2));
+    model.children[0].geometry.elementsNeedUpdate = true;
   }
 }
 </script>
