@@ -322,7 +322,8 @@ function onClick (e) {
     */
     var verts = model.geometry.getAttribute('position');
     verts.array = verts.array.slice(Math.float(verts.array.length / 10) * 3);
-    verts.needsUpdate = true;
+    //verts.needsUpdate = true;
+    model.geometry.setAttribute('position', verts);
   }
 }
 </script>
