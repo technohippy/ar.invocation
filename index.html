@@ -314,14 +314,14 @@ function onClick (e) {
     model.rotation.set(0, angle + Math.PI, 0);
     model.scale.set(0.001, 0.001, 0.001);
 
-    model.children.forEach(function(mesh) {
-      var count = mesh.geometry.faces.length;
-      mesh.geometry.faces.splice(Math.floor(count / 2), Math.floor(count / 2));
-      mesh.geometry.elementsNeedUpdate = true;
-    });
+    /*
     var count = model.geometry.faces.length;
     model.geometry.faces.splice(Math.floor(count / 2), Math.floor(count / 2));
     model.geometry.elementsNeedUpdate = true;
+    */
+    var verts = model.geometry.getAttribute('position');
+    verts.array = verts.array.slice(3 * 1000);
+    verts.needsUpdate = true;
   }
 }
 </script>
