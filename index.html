@@ -314,7 +314,7 @@ function onClick (e) {
 
     var count = model.geometry.faces.length;
     model.geometry.faces.splice(Math.floor(count / 2), Math.floor(count / 2));
-    model.geometry.needsUpdate = true;
+    model.geometry.elementsNeedUpdate = true;
   }
 }
 </script>
