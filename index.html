@@ -315,13 +315,6 @@ function onClick (e) {
     //model.rotation.set(0, angle + Math.PI, 0);
     //model.scale.set(0.001, 0.001, 0.001);
 
-    /*
-    var count = model.children[0].geometry.faces.length;
-    alert(count);
-    model.children[0].geometry.faces.splice(Math.floor(count / 2), Math.floor(count / 2));
-    model.children[0].geometry.elementsNeedUpdate = true;
-    */
-    alert(model.children.length);
     var attrib = model.children[0].geometry.getAttribute('position');
     /*
     model.children[0].geometry.addAttribute('position', new THREE.Float32BufferAttribyte(attrib.array.slice(Math.floor(attrib.array.length / 10) * 3), 3));

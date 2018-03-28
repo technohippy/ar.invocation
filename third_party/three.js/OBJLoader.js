@@ -644,6 +644,47 @@ THREE.OBJLoader = ( function () {
 				// Skip o/g line declarations that did not follow with any faces
 				if ( geometry.vertices.length === 0 ) continue;
 
+var count = geometry.vertices.length / 3;
+var sortKeys = [];
+for (let i = 0; i < count; i++) {
+  let y = geometry.vertices[3 * i + 1];
+  sortKeys.push([i, y]);
+}
+sortKeys = sortKeys.sort(function(a, b) {
+  return a[1] - b[1];
+});
+var sortedVertices = [];
+var sortedNormals = [];
+var sortedColors = [];
+var sortedUvs = [];
+for (let i = 0; i < count; i++) {
+  let sortKey = sortKeys[i][0];
+  sortedVertices.push(
+    geometry.vertices[3 * sortKey],
+    geometry.vertices[3 * sortKey + 1],
+    geometry.vertices[3 * sortKey + 2]
+  );
+  sortedNormals.push(
+    geometry.normals[3 * sortKey],
+    geometry.normals[3 * sortKey + 1],
+    geometry.normals[3 * sortKey + 2]
+  );
+  sortedColors.push(
+    geometry.colors[3 * sortKey],
+    geometry.colors[3 * sortKey + 1],
+    geometry.colors[3 * sortKey + 2]
+  );
+  sortedUvs.push(
+    geometry.uvs[3 * sortKey],
+    geometry.uvs[3 * sortKey + 1]
+  );
+}
+geometry.vertices = sortedVertices;
+geometry.normals = sortedNormals;
+geometry.colors = sortedColors;
+geometry.uvs = sortedUvs;
+
+
 				var buffergeometry = new THREE.BufferGeometry();
 
 				buffergeometry.addAttribute( 'position', new THREE.Float32BufferAttribute( geometry.vertices, 3 ) );
