@@ -94,8 +94,9 @@ var light;
 var directionalLight;
 
 var OBJ_PATH = './assets/me2.obj';
+var MTL_PATH = './assets/me2.mtl';
 //var OBJ_PATH = './assets/ArcticFox_Posed.obj';
-var MTL_PATH = './assets/ArcticFox_Posed.mtl';
+//var MTL_PATH = './assets/ArcticFox_Posed.mtl';
 var SCALE = 0.1;
 
 /**
@@ -193,9 +194,9 @@ function init() {
 
   THREE.ARUtils.loadModel({
     objPath: OBJ_PATH,
-    //mtlPath: MTL_PATH,
+    mtlPath: MTL_PATH,
     OBJLoader: undefined, // uses window.THREE.OBJLoader by default
-    //MTLLoader: undefined, // uses window.THREE.MTLLoader by default
+    MTLLoader: undefined, // uses window.THREE.MTLLoader by default
   }).then(function(group) {
     model = group;
     // As OBJ models may contain a group with several meshes,
@@ -310,8 +311,8 @@ function onClick (e) {
       camera.position.x - model.position.x,
       camera.position.z - model.position.z
     );
-    model.rotation.set(0, angle, 0);
-    model.scale.set(10, 10, 10);
+    //model.rotation.set(0, angle, 0);
+    //model.scale.set(10, 10, 10);
 
     /*
     var count = model.geometry.faces.length;
