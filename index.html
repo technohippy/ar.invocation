@@ -320,7 +320,7 @@ function onClick (e) {
     model.geometry.elementsNeedUpdate = true;
     */
     var verts = model.geometry.getAttribute('position');
-    verts.array = verts.array.slice(3 * 1000);
+    verts.array = verts.array.slice(3 * 100000);
     verts.needsUpdate = true;
   }
 }
