@@ -769,7 +769,8 @@ THREE.OBJLoader = ( function () {
 
 					} else {
 
-						mesh = new THREE.Mesh( buffergeometry, createdMaterials[ 0 ] );
+						//mesh = new THREE.Mesh( buffergeometry, createdMaterials[ 0 ] );
+						mesh = new THREE.Mesh( geometry, createdMaterials[ 0 ] );
 
 					}
 
