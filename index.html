@@ -123,7 +123,6 @@ function init() {
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(window.innerWidth, window.innerHeight);
   renderer.autoClear = false;
-renderer.localClippingEnabled = true;
   canvas = renderer.domElement;
   document.body.appendChild(canvas);
   scene = new THREE.Scene();
@@ -311,11 +310,11 @@ function onClick (e) {
       camera.position.x - model.position.x,
       camera.position.z - model.position.z
     );
-    //model.rotation.set(0, angle, 0);
-    arDebug.getElement().appendChild('' + model.material.clippingPlanes);
-    model.material.clippingPlanes = [new THREE.Plane(new THREE.Vector3(1, 0, 0), model.position.x)];
-    model.material.needsUpdate = true;
-    renderer.clippingPlanes.push(new THREE.Plane(new THREE.Vector3(0, 1, 0), 0.1));
+    model.rotation.set(0, angle, 0);
+
+    var count = model.geometry.faces.length;
+    model.geometry.faces.splice(Math.floor(count / 2), Math.floor(count / 2));
+    model.geometry.needsUpdate = true;
   }
 }
 </script>
