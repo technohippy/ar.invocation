@@ -315,7 +315,7 @@ function onClick (e) {
     arDebug.getElement().appendChild('' + model.material.clippingPlanes);
     model.material.clippingPlanes = [new THREE.Plane(new THREE.Vector3(1, 0, 0), model.position.x)];
     model.material.needsUpdate = true;
-    renderer.clippingPlanes.push(new THREE.Plane(new THREE.Vector3(0, 1, 0), 0.01));
+    renderer.clippingPlanes.push(new THREE.Plane(new THREE.Vector3(0, 1, 0), 0.1));
   }
 }
 </script>
