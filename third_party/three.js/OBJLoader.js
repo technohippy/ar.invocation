@@ -672,34 +672,40 @@ for (let i = 0; i < faceCount; i++) {
     geometry.vertices[3 * 3 * (sortKey + 2) + 1],
     geometry.vertices[3 * 3 * (sortKey + 2) + 2]
   );
-  sortedNormals.push(
-    geometry.normals[3 * 3 * (sortKey + 0) + 0],
-    geometry.normals[3 * 3 * (sortKey + 0) + 1],
-    geometry.normals[3 * 3 * (sortKey + 0) + 2],
-    geometry.normals[3 * 3 * (sortKey + 1) + 0],
-    geometry.normals[3 * 3 * (sortKey + 1) + 1],
-    geometry.normals[3 * 3 * (sortKey + 1) + 2],
-    geometry.normals[3 * 3 * (sortKey + 2) + 0],
-    geometry.normals[3 * 3 * (sortKey + 2) + 1],
-    geometry.normals[3 * 3 * (sortKey + 2) + 2]
-  );
-  sortedColors.push(
-    geometry.colors[3 * 3 * (sortKey + 0) + 0],
-    geometry.colors[3 * 3 * (sortKey + 0) + 1],
-    geometry.colors[3 * 3 * (sortKey + 0) + 2],
-    geometry.colors[3 * 3 * (sortKey + 1) + 0],
-    geometry.colors[3 * 3 * (sortKey + 1) + 1],
-    geometry.colors[3 * 3 * (sortKey + 1) + 2],
-    geometry.colors[3 * 3 * (sortKey + 2) + 0],
-    geometry.colors[3 * 3 * (sortKey + 2) + 1],
-    geometry.colors[3 * 3 * (sortKey + 2) + 2]
-  );
-  sortedUvs.push(
-    geometry.uvs[2 * 2 * (sortKey + 0) + 0],
-    geometry.uvs[2 * 2 * (sortKey + 0) + 1],
-    geometry.uvs[2 * 2 * (sortKey + 1) + 0],
-    geometry.uvs[2 * 2 * (sortKey + 1) + 1]
-  );
+  if (geometry.normals.length > 0) {
+    sortedNormals.push(
+      geometry.normals[3 * 3 * (sortKey + 0) + 0],
+      geometry.normals[3 * 3 * (sortKey + 0) + 1],
+      geometry.normals[3 * 3 * (sortKey + 0) + 2],
+      geometry.normals[3 * 3 * (sortKey + 1) + 0],
+      geometry.normals[3 * 3 * (sortKey + 1) + 1],
+      geometry.normals[3 * 3 * (sortKey + 1) + 2],
+      geometry.normals[3 * 3 * (sortKey + 2) + 0],
+      geometry.normals[3 * 3 * (sortKey + 2) + 1],
+      geometry.normals[3 * 3 * (sortKey + 2) + 2]
+    );
+  }
+  if (geometry.colors.length > 0) {
+    sortedColors.push(
+      geometry.colors[3 * 3 * (sortKey + 0) + 0],
+      geometry.colors[3 * 3 * (sortKey + 0) + 1],
+      geometry.colors[3 * 3 * (sortKey + 0) + 2],
+      geometry.colors[3 * 3 * (sortKey + 1) + 0],
+      geometry.colors[3 * 3 * (sortKey + 1) + 1],
+      geometry.colors[3 * 3 * (sortKey + 1) + 2],
+      geometry.colors[3 * 3 * (sortKey + 2) + 0],
+      geometry.colors[3 * 3 * (sortKey + 2) + 1],
+      geometry.colors[3 * 3 * (sortKey + 2) + 2]
+    );
+  }
+  if (geometry.uvs.length > 0) {
+    sortedUvs.push(
+      geometry.uvs[2 * 2 * (sortKey + 0) + 0],
+      geometry.uvs[2 * 2 * (sortKey + 0) + 1],
+      geometry.uvs[2 * 2 * (sortKey + 1) + 0],
+      geometry.uvs[2 * 2 * (sortKey + 1) + 1]
+    );
+  }
 }
 geometry.vertices = sortedVertices;
 geometry.normals = sortedNormals;
