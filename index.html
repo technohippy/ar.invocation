@@ -321,9 +321,7 @@ function onClick (e) {
     model.geometry.elementsNeedUpdate = true;
     */
     var verts = model.geometry.getAttribute('position');
-    verts.array = verts.array.slice(Math.float(verts.array.length / 10) * 3);
-    //verts.needsUpdate = true;
-    model.geometry.setAttribute('position', verts);
+    model.geometry.setAttribute('position', new THREE.Float32BufferAttribyte(verts.array.slice(Math.float(verts.array.length / 10) * 3), 3));
   }
 }
 </script>
