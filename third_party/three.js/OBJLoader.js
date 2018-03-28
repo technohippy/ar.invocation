@@ -644,11 +644,13 @@ THREE.OBJLoader = ( function () {
 				// Skip o/g line declarations that did not follow with any faces
 				if ( geometry.vertices.length === 0 ) continue;
 
-var count = geometry.vertices.length / 3;
+var faceCount = geometry.vertices.length / 3 / 3;
 var sortKeys = [];
-for (let i = 0; i < count; i++) {
-  let y = geometry.vertices[3 * i + 1];
-  sortKeys.push([i, y]);
+for (let i = 0; i < faceCount; i++) {
+  let y0 = geometry.vertices[3 * 3 * (i + 0) + 1];
+  let y1 = geometry.vertices[3 * 3 * (i + 1) + 1];
+  let y2 = geometry.vertices[3 * 3 * (i + 2) + 1];
+  sortKeys.push([i, Math.max(y0, y1, y2)]);
 }
 sortKeys = sortKeys.sort(function(a, b) {
   return a[1] - b[1];
@@ -657,26 +659,46 @@ var sortedVertices = [];
 var sortedNormals = [];
 var sortedColors = [];
 var sortedUvs = [];
-for (let i = 0; i < count; i++) {
+for (let i = 0; i < faceCcount; i++) {
   let sortKey = sortKeys[i][0];
   sortedVertices.push(
-    geometry.vertices[3 * sortKey],
-    geometry.vertices[3 * sortKey + 1],
-    geometry.vertices[3 * sortKey + 2]
+    geometry.vertices[3 * 3 * (sortKey + 0) + 0],
+    geometry.vertices[3 * 3 * (sortKey + 0) + 1],
+    geometry.vertices[3 * 3 * (sortKey + 0) + 2],
+    geometry.vertices[3 * 3 * (sortKey + 1) + 0],
+    geometry.vertices[3 * 3 * (sortKey + 1) + 1],
+    geometry.vertices[3 * 3 * (sortKey + 1) + 2],
+    geometry.vertices[3 * 3 * (sortKey + 2) + 0],
+    geometry.vertices[3 * 3 * (sortKey + 2) + 1],
+    geometry.vertices[3 * 3 * (sortKey + 2) + 2]
   );
   sortedNormals.push(
-    geometry.normals[3 * sortKey],
-    geometry.normals[3 * sortKey + 1],
-    geometry.normals[3 * sortKey + 2]
+    geometry.normals[3 * 3 * (sortKey + 0) + 0],
+    geometry.normals[3 * 3 * (sortKey + 0) + 1],
+    geometry.normals[3 * 3 * (sortKey + 0) + 2],
+    geometry.normals[3 * 3 * (sortKey + 1) + 0],
+    geometry.normals[3 * 3 * (sortKey + 1) + 1],
+    geometry.normals[3 * 3 * (sortKey + 1) + 2],
+    geometry.normals[3 * 3 * (sortKey + 2) + 0],
+    geometry.normals[3 * 3 * (sortKey + 2) + 1],
+    geometry.normals[3 * 3 * (sortKey + 2) + 2]
   );
   sortedColors.push(
-    geometry.colors[3 * sortKey],
-    geometry.colors[3 * sortKey + 1],
-    geometry.colors[3 * sortKey + 2]
+    geometry.colors[3 * 3 * (sortKey + 0) + 0],
+    geometry.colors[3 * 3 * (sortKey + 0) + 1],
+    geometry.colors[3 * 3 * (sortKey + 0) + 2],
+    geometry.colors[3 * 3 * (sortKey + 1) + 0],
+    geometry.colors[3 * 3 * (sortKey + 1) + 1],
+    geometry.colors[3 * 3 * (sortKey + 1) + 2],
+    geometry.colors[3 * 3 * (sortKey + 2) + 0],
+    geometry.colors[3 * 3 * (sortKey + 2) + 1],
+    geometry.colors[3 * 3 * (sortKey + 2) + 2]
   );
   sortedUvs.push(
-    geometry.uvs[3 * sortKey],
-    geometry.uvs[3 * sortKey + 1]
+    geometry.uvs[2 * 2 * (sortKey + 0) + 0],
+    geometry.uvs[2 * 2 * (sortKey + 0) + 1],
+    geometry.uvs[2 * 2 * (sortKey + 1) + 0],
+    geometry.uvs[2 * 2 * (sortKey + 1) + 1]
   );
 }
 geometry.vertices = sortedVertices;
