@@ -314,6 +314,7 @@ function onClick (e) {
     //model.rotation.set(0, angle, 0);
     arDebug.getElement().appendChild('' + model.material.clippingPlanes);
     model.material.clippingPlanes = [new THREE.Plane(new THREE.Vector3(1, 0, 0), model.position.x)];
+    model.material.needsUpdate = true;
   }
 }
 </script>
