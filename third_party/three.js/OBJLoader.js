@@ -653,7 +653,8 @@ for (let i = 0; i < faceCount; i++) {
   sortKeys.push([i, Math.max(y0, y1, y2)]);
 }
 sortKeys = sortKeys.sort(function(a, b) {
-  return a[1] - b[1];
+  //return a[1] - b[1];
+  return a[0] - b[0];
 });
 var sortedVertices = [];
 var sortedNormals = [];
