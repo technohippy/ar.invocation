@@ -752,8 +752,7 @@ THREE.OBJLoader = ( function () {
 
 					} else {
 
-						//mesh = new THREE.Mesh( buffergeometry, createdMaterials );
-						mesh = new THREE.Mesh( geometry, createdMaterials );
+						mesh = new THREE.Mesh( buffergeometry, createdMaterials );
 
 					}
 
@@ -769,8 +768,7 @@ THREE.OBJLoader = ( function () {
 
 					} else {
 
-						//mesh = new THREE.Mesh( buffergeometry, createdMaterials[ 0 ] );
-						mesh = new THREE.Mesh( geometry, createdMaterials[ 0 ] );
+						mesh = new THREE.Mesh( buffergeometry, createdMaterials[ 0 ] );
 
 					}
 
@@ -778,7 +776,8 @@ THREE.OBJLoader = ( function () {
 
 				mesh.name = object.name;
 
-				container.add( mesh );
+				//container.add( mesh );
+				container.add( object );
 
 			}
 
