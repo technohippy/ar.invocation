@@ -311,7 +311,8 @@ function onClick (e) {
       camera.position.x - model.position.x,
       camera.position.z - model.position.z
     );
-    model.rotation.set(0, angle + Math.PI, 0);
+    model.rotation.set(0, angle, 0);
+    //model.rotation.set(0, angle + Math.PI, 0);
     //model.scale.set(0.001, 0.001, 0.001);
 
     /*
@@ -320,7 +321,7 @@ function onClick (e) {
     model.geometry.elementsNeedUpdate = true;
     */
     var verts = model.geometry.getAttribute('position');
-    verts.array = verts.array.slice(verts.array.length / 3);
+    verts.array = verts.array.slice(Math.float(verts.array.length / 10) * 3);
     verts.needsUpdate = true;
   }
 }
