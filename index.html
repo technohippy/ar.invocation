@@ -321,7 +321,7 @@ function onClick (e) {
     model.geometry.elementsNeedUpdate = true;
     */
     var verts = model.geometry.getAttribute('position');
-    model.geometry.setAttribute('position', new THREE.Float32BufferAttribyte(verts.array.slice(Math.float(verts.array.length / 10) * 3), 3));
+    model.geometry.addAttribute('position', new THREE.Float32BufferAttribyte(verts.array.slice(Math.floor(verts.array.length / 10) * 3), 3));
     model.geometry.needsUpdate = true;
   }
 }
