@@ -659,7 +659,7 @@ var sortedVertices = [];
 var sortedNormals = [];
 var sortedColors = [];
 var sortedUvs = [];
-for (let i = 0; i < faceCcount; i++) {
+for (let i = 0; i < faceCount; i++) {
   let sortKey = sortKeys[i][0];
   sortedVertices.push(
     geometry.vertices[3 * 3 * (sortKey + 0) + 0],
